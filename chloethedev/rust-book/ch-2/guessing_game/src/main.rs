@@ -8,12 +8,11 @@ fn main() {
     let aimery_age = rand::thread_rng().gen_range(1..101);
 
     println!("Aimery is {} years old", aimery_age);
-    loop {
-        
+
+    loop {    
         println!("Please input your guess.");
 
-              Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!  let mut guess = String::new();
+        let mut guess = String::new();
 
         io::stdin()
             .read_line(&mut guess)
@@ -26,7 +25,10 @@ fn main() {
         match guess.cmp(&aimery_age) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => println!("You win!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
         }
     }
 }
